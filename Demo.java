@@ -32,6 +32,16 @@ public class Demo {
     return answer;
   }
 
+  public static int[][] create2DArray(int rows, int cols, int maxValue) {
+    int[][]arr = new int[rows][cols];
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+        arr[i][j] = (int)(Math.random() * (maxValue + 1));
+      }
+    }
+    return arr;
+  }
+
 
   public static void main(String[] args) {
     if (args.length > 0) {
@@ -62,8 +72,15 @@ For arrayDeepToString
 public static void main(String[] args) {
 int[][]one = {{1, 2, 3}, {}, {8, 2, 3, 1}, {1}};
 int[][]two = {{10, 100, 1000}, {0, 0, 0, 0, 0}, {0, 5, 10, 15, 20}};
-System.out.println(arrayDeepToString(one));
-System.out.println(arrayDeepToString(two));
+System.out.println(arrayDeepToString(one).replace("}, ","},\n"));
+System.out.println(arrayDeepToString(two).replace("}, ","},\n"));
+}
+
+For create2DArray
+public static void main(String[] args) {
+  System.out.println(arrayDeepToString(create2DArray(5,4,4)));
+  System.out.println(arrayDeepToString(create2DArray(6,2,3)));
+  System.out.println(arrayDeepToString(create2DArray(5,3,10)));
 }
 
 ****************************************************************************/
