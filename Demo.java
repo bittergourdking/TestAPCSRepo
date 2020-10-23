@@ -28,7 +28,7 @@ public class Demo {
     for (int i = 0; i < arr.length - 1; i++) {
       answer = answer + arrToString(arr[i]) + ", ";
     }
-    answer = answer + "}";
+    answer = answer + arrToString(arr[arr.length - 1]) + "}";
     return answer;
   }
 
@@ -42,6 +42,17 @@ public class Demo {
     return arr;
   }
 
+  public static int[][] create2DArrayRandomized(int rows, int cols, int maxValue) {
+    int[][]arr = new int[rows][];
+    for (int i = 0; i < rows; i++) {
+      int randomCols = (int)(Math.random() * (cols + 1));
+      arr[i] = new int[randomCols];
+      for (int j = 0; j < randomCols; j++) {
+        arr[i][j] = (int)(Math.random() * (maxValue + 1));
+      }
+    }
+    return arr;
+  }
 
   public static void main(String[] args) {
     if (args.length > 0) {
@@ -81,6 +92,13 @@ public static void main(String[] args) {
   System.out.println(arrayDeepToString(create2DArray(5,4,4)));
   System.out.println(arrayDeepToString(create2DArray(6,2,3)));
   System.out.println(arrayDeepToString(create2DArray(5,3,10)));
+}
+
+For create2DArrayRandomized
+public static void main(String[] args) {
+  System.out.println(arrayDeepToString(create2DArrayRandomized(6,4,4)));
+  System.out.println(arrayDeepToString(create2DArrayRandomized(5,3,10)));
+  System.out.println(arrayDeepToString(create2DArrayRandomized(4,10,100)));
 }
 
 ****************************************************************************/
